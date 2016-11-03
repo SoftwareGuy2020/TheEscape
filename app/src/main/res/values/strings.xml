@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Escape</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="win">Wins:</string>
+    <string name="losses">Losses:</string>
+    <string name="obstacle">Obstacle</string>
+    <string name="player">Player - Coder Prey</string>
+    <string name="enemy">Enemy - Zombie Catcher</string>
+    <string name="exit">Exit</string>
+
+</resources>
