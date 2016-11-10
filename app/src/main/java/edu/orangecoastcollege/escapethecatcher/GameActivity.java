@@ -15,7 +15,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-
+/**
+ * Controller for The Escape app
+ */
 public class GameActivity extends Activity implements GestureDetector.OnGestureListener{
 
     private GestureDetector aGesture;
@@ -182,12 +184,22 @@ public class GameActivity extends Activity implements GestureDetector.OnGestureL
         }
     }
 
+    /**
+     * Called when a touch screen event was not handled by any of the views under it.
+     * @param event the event
+     * @return Return true if you have consumed the event, false if you haven't. The default implementation always returns false.
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         super.onTouchEvent(event);
         return aGesture.onTouchEvent(event);
     }
 
+    /**
+     *  initialize the contents of the Activity's standard options menu
+     * @param menu the menu
+     * @return boolean Return false to allow normal menu processing to proceed, true to consume it here.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -195,6 +207,11 @@ public class GameActivity extends Activity implements GestureDetector.OnGestureL
         return true;
     }
 
+    /**
+     *  This hook is called whenever an item in your options menu is selected.
+     * @param item the menu item that was selected
+     * @return boolean Return false to allow normal menu processing to proceed, true to consume it here.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -207,31 +224,69 @@ public class GameActivity extends Activity implements GestureDetector.OnGestureL
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Notified when a tap occurs with the down MotionEvent that triggered it.
+     * @param motionEvent the down motion event
+     * @return boolean Return false to allow normal processing to proceed, true to consume it here.
+     */
     @Override
     public boolean onDown(MotionEvent motionEvent) {
         return false;
     }
 
+    /**
+     * The user has performed a down MotionEvent and not performed a move or up yet.
+     * @param motionEvent the down motion event
+     */
     @Override
     public void onShowPress(MotionEvent motionEvent) {
 
     }
 
+    /**
+     * Notified when a tap occurs with the up MotionEvent that triggered it.
+     * @param motionEvent the up motion event that completed the first tap
+     * @return true if the event is consumed, else false
+     */
     @Override
     public boolean onSingleTapUp(MotionEvent motionEvent) {
         return false;
     }
 
+    /**
+     * Notified when a scroll occurs with the initial on down MotionEvent and the current move
+     * MotionEvent. The distance in x and y is also supplied for convenience.
+     * @param motionEvent The first down motion event that started the scrolling.
+     * @param motionEvent1 The move motion event that triggered the current onScroll.
+     * @param v The distance along the X axis that has been scrolled since the last call to onScroll.
+     *          This is NOT the distance between e1 and e2.
+     * @param v1 The distance along the Y axis that has been scrolled since the last call to onScroll.
+     *           This is NOT the distance between e1 and e2.
+     * @return true if the event is consumed, else false
+     */
     @Override
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
         return false;
     }
 
+    /**
+     * Notified when a long press occurs with the initial on down MotionEvent that triggered it.
+     * @param motionEvent The initial on down motion event that started the longpress.
+     */
     @Override
     public void onLongPress(MotionEvent motionEvent) {
 
     }
 
+    /**
+     * Notified of a fling event when it occurs with the initial on down MotionEvent and the matching
+     * up MotionEvent. The calculated velocity is supplied along the x and y axis in pixels per second.
+     * @param motionEvent The first down motion event that started the fling.
+     * @param motionEvent1 The move motion event that triggered the current onFling.
+     * @param v The velocity of this fling measured in pixels per second along the x axis.
+     * @param v1 The velocity of this fling measured in pixels per second along the y axis.
+     * @return
+     */
     @Override
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
         movePlayer(v, v1);
